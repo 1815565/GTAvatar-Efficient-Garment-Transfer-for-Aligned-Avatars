@@ -23,7 +23,7 @@ publisher={Elsevier}}
 ## Installation
 ### Environment Setup
 This repository has been tested on the following platform:
-1) Python 3.7.13, PyTorch 1.12.1 with CUDA 11.6 and cuDNN 8.3.2, Ubuntu 22.04/CentOS 7.9.2009
+1) Python 3.9.19, PyTorch 2.0.1 with CUDA 11.8 and cuDNN 8.7.0, Ubuntu 20.04
 
 To clone the repo, run either:
 ```
