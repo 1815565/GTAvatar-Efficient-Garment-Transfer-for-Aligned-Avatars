@@ -1,6 +1,5 @@
 # GTAvatar-Efficient-Garment-Transfer-for-Aligned-Avatars
 
-<img src="main/pipeline.png" width="800"/> 
 
 This repository contains the implementation of the CAGD 2026 submission 
 [GTAvatar: Efficient Garment Transfer for Aligned Avatars Simultaneously Reconstructed from Monocular Videos].
