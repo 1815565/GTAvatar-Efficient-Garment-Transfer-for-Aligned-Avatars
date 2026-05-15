@@ -52,57 +52,18 @@ Please follow the instructions of [ExAvatar](https://github.com/mks0601/ExAvatar
 Please follow the instructions of [Instant-NVR](https://github.com/zju3dv/instant-nvr) to to run SCHP (Self-Correction for Human Parsing) in order to get semantic files.
 
 ## Training
-To train new networks from scratch, run
+To train new networks from scratch, first, modify the "subjects" in "main/config", then run
 ```shell
-# ZJU-MoCap
-python train.py dataset=zjumocap_377_mono
-# PeopleSnapshot
-python train.py dataset=ps_female_3 option=iter30k pose_correction=none 
+python train.py --subject_id $exp_name 
 ```
-To train on a different subject, simply choose from the configs in `configs/dataset/`.
-
-We use [wandb](https://wandb.ai) for online logging, which is free of charge but needs online registration.
+To train MCA, we mainly follow the code from [GaussianIP](https://github.com/silence-tang/GaussianIP), but we did modify some files which are provided in GaussianIP folder.
 
 ## Evaluation
-To evaluate the method for a specified subject, run
+To evaluate the method , run
 ```shell
-# ZJU-MoCap
-python render.py mode=test dataset.test_mode=view dataset=zjumocap_377_mono
-# PeopleSnapshot
-python render.py mode=test dataset.test_mode=pose pose_correction=none dataset=ps_female_3
+python test.py --subject_id $exp_name --test_epoch 5
 ```
-
-## Test on out-of-distribution poses
-First, please download the preprocessed AIST++ and AMASS sequence for subjects in ZJU-MoCap [here](https://drive.google.com/drive/folders/17vGpq6XGa7YYQKU4O1pI4jCMbcEXJjOI?usp=drive_link) 
-and extract under the corresponding subject folder `${ZJU_ROOT}/CoreView_${SUBJECT}`.
-
-To animate the subject under out-of-distribution poses, run
-```shell
-python render.py mode=predict dataset.predict_seq=0 dataset=zjumocap_377_mono
-```
-
-We provide four preprocessed sequences for each subject of ZJU-MoCap, 
-which can be specified by setting `dataset.predict_seq` to 0,1,2,3, 
-where `dataset.predict_seq=3` corresponds to the canonical rendering.
-
-Currently, the code only supports animating ZJU-MoCap models for out-of-distribution models.
-
-## License
-We employ [MIT License](LICENSE) for the 3DGS-Avatar code, which covers
-```
-configs
-dataset
-models
-utils/dataset_utils.py
-extract_smpl_parameters.py
-render.py
-train.py
-```
-
-The rest of the code are modified from [3DGS](https://github.com/graphdeco-inria/gaussian-splatting). 
-Please consult their license and cite them.
 
 ## Acknowledgement
-This project is built on source codes from [3DGS](https://github.com/graphdeco-inria/gaussian-splatting). 
-We also use the data preprocessing script and part of the network implementations from [ARAH](https://github.com/taconite/arah-release).
+This project is built on source codes from [ExAvatar](https://github.com/mks0601/ExAvatar_RELEASE), [GaussianIP](https://github.com/silence-tang/GaussianIP). 
 We sincerely thank these authors for their awesome work.
