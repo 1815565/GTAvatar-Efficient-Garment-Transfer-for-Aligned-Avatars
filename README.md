@@ -48,9 +48,8 @@ pip install git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/to
 ```
 
 ## Dataset preparation
-Due to license issues, we cannot publicly distribute our preprocessed ZJU-MoCap and PeopleSnapshot data. 
-Please follow the instructions of [ARAH](https://github.com/taconite/arah-release) to download and preprocess the datasets.
-For PeopleSnapshot, we use the optimized SMPL parameters from Anim-NeRF [here](https://drive.google.com/drive/folders/1tbBJYstNfFaIpG-WBT6BnOOErqYUjn6V?usp=drive_link).
+Please follow the instructions of [ExAvatar](https://github.com/mks0601/ExAvatar_RELEASE) to preprocess the datasets.
+Please follow the instructions of [Instant-NVR](https://github.com/zju3dv/instant-nvr) to to run SCHP (Self-Correction for Human Parsing) in order to get semantic files.
 
 ## Training
 To train new networks from scratch, run
